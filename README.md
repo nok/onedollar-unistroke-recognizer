@@ -2,7 +2,7 @@
 
 Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a template based gesture recognition, for [Processing](http://processing.org/).
 
-[About](#p5_about) - [Installation](#p5_installation) - [Examples](#p5_examples) - [Dependencies](#p5_dependencies) - [Tested](#p5_tested)
+[About](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_about) - [Installation](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_installation) - [Examples](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_examples) - [Dependencies](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_dependencies) - [Tested](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_tested)
 
 ### <a id="p5_about"></a>About
 
@@ -20,7 +20,12 @@ only one template for each gesture.
 Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libraries folder of your Processing sketches. Reference and examples are included in the *OneDollarUnistrokeRecognizer* folder.
 
 ### <a id="p5_examples"></a>Examples
-...
+* [Baisc.pde](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/Basic/Basic.pde)
+* [Settings.pde](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/Settings/Settings.pde)
+* [Gestures.pde](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/Gestures/Gestures.pde)
+* [Binding.pde](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/Binding/Binding.pde)
+* [Callback.pde](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/Callback/Callback.pde)
+
 
 ### <a id="p5_dependencies"></a>Dependencies
 None.
