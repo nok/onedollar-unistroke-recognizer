@@ -27,6 +27,8 @@ public class OneDollar {
 	 */
 	public OneDollar(PApplet parent){
 
+		System.out.println("# OneDollar-Unistroke-Recognizer - v"+this.getVersion()+" - https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer");
+		
 		parent.registerDispose(this);
 		this.parent 		= parent;
 		this.candidates 	= new HashMap<Integer,Candidate>();
@@ -431,7 +433,7 @@ public class OneDollar {
 	public String toString(){
 		String feedback = "# OneDollar-Unistroke-Recognizer\n"
 						+ "#    Gesture Recognition Settings:\n"
-						+ "#       Online Gestures:                "+this.online+"\n"
+//						+ "#       Online Gestures:                "+this.online+"\n"
 						+ "#       Minimum Score:                  "+this.recognizer.getScore()+" %\n"
 						+ "#       Minimum Path Length:            "+this.recognizer.getMinLength()+"\n"
 						+ "#       Maximum Path Length:            "+this.maxLength+"\n"
@@ -461,7 +463,7 @@ public class OneDollar {
 	 * 
 	 * @return String
 	 */
-	public static String version() {
+	public static String getVersion() {
 		return VERSION;
 	}
 	public final static String VERSION = "0.1";	
