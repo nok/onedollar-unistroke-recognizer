@@ -2,7 +2,6 @@
 
 Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a template based gesture recognition, for [Processing](http://processing.org/).
 
-[About](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_about) - [Download](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_download) - [Installation](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_installation) - [Examples](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_examples) - [Dependencies](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_dependencies) - [Snapshot](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_snapshot) - [Tested](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer#p5_tested)
 
 ### <a id="p5_about"></a>About
 
@@ -36,7 +35,7 @@ None.
 
 ### <a id="p5_tested"></a>Tested
 System: OSX, Windows<br>
-Processing Version: 1.5.1, 2.0a5
+Processing Version: 1.5.1, 2.0a5, 2.0a6
 
 ### <a id="p5_snapshot"></a>Snapshot
 ![Snapshot](https://raw.github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/master/reference/p5snap.png)
