@@ -51,6 +51,23 @@ public class Candidate {
 		return this;
 	}
 
+	protected PVector getMiddlePoint(){
+		ListIterator<PointInTime> iterator = (ListIterator<PointInTime>)line.iterator();
+		PVector result = null;
+		while(iterator.hasNext()){
+			PVector point = ((PointInTime)iterator.next()).getPosition();
+			if(result==null){
+				result = point;
+			} else {
+				result.x += point.x;
+				result.y += point.y;
+			}
+		}
+		result.x = (int)(result.x/line.size());
+		result.y = (int)(result.y/line.size());
+		return result;
+	}
+	
 	protected PVector getFirstPoint(){
 		return line.getLast().getPosition();
 	}
@@ -74,7 +91,7 @@ public class Candidate {
 	
 	protected void fire( String _template ){
 		if( binds.containsKey( _template ) ){
-			binds.get( _template ).fire( this );
+			binds.get( _template ).fire( this, _template );
 		}
 	}
 

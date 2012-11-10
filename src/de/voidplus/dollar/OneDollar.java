@@ -134,7 +134,7 @@ public class OneDollar {
 											" # Method: "+method
 									);
 								}
-								this.callbacks.get( result.getName() ).fire( motion );
+								this.callbacks.get( result.getName() ).fire( motion, result.getName() );
 							}
 							this.candidates.get( id ).clear( positions.getLast() );	
 							return result;
@@ -155,7 +155,7 @@ public class OneDollar {
 										" # Method: "+method
 								);
 							}
-							this.callbacks.get( result.getName() ).fire( motion );
+							this.callbacks.get( result.getName() ).fire( motion, result.getName() );
 							this.candidates.get( id ).clear( positions.getLast() );
 							return result;
 						}

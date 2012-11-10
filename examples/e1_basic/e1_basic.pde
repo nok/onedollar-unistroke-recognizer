@@ -1,13 +1,20 @@
 import de.voidplus.dollar.*;
 
+String gesture_name;
+PVector position, centroid;
+
 OneDollar one;
 
 void setup(){
   size(400,400);
-  background(255);
-  smooth(); noFill(); stroke(0);
+  background(241);
+  smooth();
   
-  one = new OneDollar(this);    // create a detector
+  gesture_name = "-";
+  position = new PVector();
+  centroid = new PVector();
+  
+  one = new OneDollar(this);
   one.setVerbose(true);         // activate verbose mode
   println(one);                 // print the settings
   
@@ -18,22 +25,40 @@ void setup(){
   // http://depts.washington.edu/aimgroup/proj/dollar/unistrokes.gif
 
   // bind callbacks:
-  one.bind("circle","detectCircle");
-  one.bind("triangle","detectTriangle");
+  one.bind("circle","detected");
+  one.bind("triangle","detected");
 }
 
-void detectCircle(float x, float y){
-  println("# Circle # X: "+x+"  Y:"+y);
+
+void detected(String gesture, int x, int y, int c_x, int c_y){
+  gesture_name = gesture;
+  position.x = x;
+  position.y = y;
+  centroid.x = c_x;
+  centroid.y = c_y;  
 }
-void detectTriangle(float x, float y){
-  println("# Triangle # X: "+x+"  Y:"+y);
-}
+
 
 void draw(){
-  background(255);
+  background(241);
+  
+  fill(0); noStroke();
+  text( "Detected Gesture: "+gesture_name, 30, 40 );
+  text( "Draw a circle or triangle!", 30, height-30);
+  
+  fill(0,68,239);
+  text( "Position: "+(int)position.x+" / "+(int)position.y, 30, 60 );
+  ellipse(position.x, position.y, 5, 5);
+  
+  fill(231,0,239);
+  text( "Centroid: "+(int)centroid.x+" / "+(int)centroid.y, 30, 80 );
+  ellipse(centroid.x, centroid.y, 5, 5);
+  
+  noFill(); stroke(150);
   one.draw();
   one.check();
 }
+
 
 void mousePressed(){
   one.start(100);

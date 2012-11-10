@@ -13,15 +13,23 @@ public class Callback {
 		this.callback = _callback;
 	}
 	
-	protected void fire( Candidate _motion ){
+	protected void fire( Candidate _motion, String _template ){
 		if( this.object!=null ){
 			try {
 				this.object.getClass().getMethod(
-					this.callback, float.class, float.class
+					this.callback,
+					String.class,
+					int.class,
+					int.class,
+					int.class,
+					int.class
 				).invoke(
 					this.object,
-					_motion.getFirstPoint().x,
-					_motion.getFirstPoint().y
+					_template,
+					(int)_motion.getFirstPoint().x,
+					(int)_motion.getFirstPoint().y,
+					(int)_motion.getMiddlePoint().x,
+					(int)_motion.getMiddlePoint().y
 				);
 			} catch ( Exception e ) {
 				PApplet.println(e.getMessage());
