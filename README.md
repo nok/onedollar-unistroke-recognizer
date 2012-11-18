@@ -36,8 +36,9 @@ Processing Version: 1.5.1, 2.0a5, 2.0a6
 * [More Gestures](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
 * [Settings](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/e5_settings/e5_settings.pde)
 
-## Snapshot
-![Snapshot](https://raw.github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/master/reference/p5snap.png)
+## Snapshots
+![Snapshot](https://raw.github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/master/reference/p5snap1.png)
+![Snapshot](https://raw.github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/master/reference/p5snap2.png)
 
 
 ## License

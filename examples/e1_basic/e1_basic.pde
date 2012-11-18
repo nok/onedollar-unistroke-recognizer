@@ -6,13 +6,14 @@ PVector position, centroid;
 OneDollar one;
 
 void setup(){
-  size(400,400);
-  background(241);
+  size(852,500);
+  background(0);
+  textFont(createFont("Arial", 11));
   smooth();
   
   gesture_name = "-";
-  position = new PVector();
-  centroid = new PVector();
+  position = new PVector(-10,-10);
+  centroid = new PVector(-10,-10);
   
   one = new OneDollar(this);
   one.setVerbose(true);         // activate verbose mode
@@ -40,13 +41,30 @@ void detected(String gesture, int x, int y, int c_x, int c_y){
 
 
 void draw(){
-  background(241);
+  background(0);
   
-  fill(0); noStroke();
-  text( "Detected Gesture: "+gesture_name, 30, 40 );
-  text( "Draw a circle or triangle!", 30, height-30);
+  // draw circle background shape
+  noFill(); stroke(30);
+  if(gesture_name.equals("circle")){
+    stroke(100);
+  }
+  ellipse(width/10*3,height/2,200,200);
   
-  fill(0,68,239);
+  // draw triangle background shape
+  stroke(30);
+  if(gesture_name.equals("triangle")){
+    stroke(100);
+  }
+  pushMatrix();
+    translate(width/10*7,height/2);
+    triangle(0, -100, 100, 100, -100, 100);
+  popMatrix();
+  
+  fill(254); noStroke();
+  text( "Detected gesture: "+gesture_name, 30, 40 );
+  text( "Draw a circle or triangle.", 30, height-30);
+  
+  fill(0,70,245);
   text( "Position: "+(int)position.x+" / "+(int)position.y, 30, 60 );
   ellipse(position.x, position.y, 5, 5);
   
@@ -54,9 +72,9 @@ void draw(){
   text( "Centroid: "+(int)centroid.x+" / "+(int)centroid.y, 30, 80 );
   ellipse(centroid.x, centroid.y, 5, 5);
   
-  noFill(); stroke(150);
-  one.draw();
-  one.check();
+  noFill(); stroke(220);
+  one.draw();                   // draw the relevant candidates
+  one.check();                  // run the gesture detection
 }
 
 
