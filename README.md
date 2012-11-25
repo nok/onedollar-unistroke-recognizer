@@ -14,8 +14,7 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 ## Download
 
-* [OneDollarUnistrokeRecognizer.zip v0.1](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/raw/master/download/OneDollarUnistrokeRecognizer.zip)
-* [Processing](http://processing.org/download/)
+* [OneDollarUnistrokeRecognizer.zip v0.1](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
 
 ## Installation
 
@@ -30,19 +29,19 @@ Processing Version: 1.5.1, 2.0a5, 2.0a6
 
 ## Examples
 
-* [Basic](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/e1_basic/e1_basic.pde)
-* [Several Callbacks](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/e2_several_callbacks/e2_several_callbacks.pde)
-* [Local Binding](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
-* [More Gestures](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
-* [Settings](https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/blob/master/examples/e5_settings/e5_settings.pde)
+* [Basic](https://github.com/voidplus/OneDollar-Unistroke-Recognizer/blob/master/examples/e1_basic/e1_basic.pde)
+* [Several Callbacks](https://github.com/voidplus/OneDollar-Unistroke-Recognizer/blob/master/examples/e2_several_callbacks/e2_several_callbacks.pde)
+* [Local Binding](https://github.com/voidplus/OneDollar-Unistroke-Recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
+* [More Gestures](https://github.com/voidplus/OneDollar-Unistroke-Recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
+* [Settings](https://github.com/voidplus/OneDollar-Unistroke-Recognizer/blob/master/examples/e5_settings/e5_settings.pde)
 
 ## Snapshots
-![Snapshot](https://raw.github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/master/reference/p5snap1.png)
-![Snapshot](https://raw.github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/master/reference/p5snap2.png)
+![Snapshot](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/reference/p5snap1.png)
+![Snapshot](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/reference/p5snap2.png)
 
 
 ## License
 
-The library is Open Source Software released under the [MIT License](https://raw.github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer/master/MIT-LICENSE.txt). It's developed by [Darius Morawiec](http://voidplus.de).
+The library is Open Source Software released under the [MIT License](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/MIT-LICENSE.txt). It's developed by [Darius Morawiec](http://voidplus.de).
 
 [&uarr;](#p5_top)
