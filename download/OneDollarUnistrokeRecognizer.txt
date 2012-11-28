@@ -18,7 +18,7 @@ url = https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer
 # 
 # If a value other than those listed is used, your library will listed as 
 # "Other".
-category = Utilities
+category = GUI
 
 # A short sentence (or fragment) to summarize the library's function. This will 
 # be shown from inside the PDE when the library is being installed. Avoid 
