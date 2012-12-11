@@ -66,7 +66,10 @@ public class OneDollar {
 		}
 		return this;
 	}
-
+	public OneDollar add( String name, Integer[] points ){
+		return this.addGesture(name, points);
+	}
+	
 
 	/**
 	 * Remove specified template from recognizer.
@@ -74,11 +77,14 @@ public class OneDollar {
 	 * @param 	name		name of template
 	 * @return
 	 */
-	public OneDollar removeTemplate( String name ){
+	public OneDollar removeGesture( String name ){
 		if( templates.containsKey( name ) ){
 			templates.remove( name );
 		}
 		return this;
+	}
+	public OneDollar remove( String name ){
+		return this.removeGesture(name);
 	}
 
 
