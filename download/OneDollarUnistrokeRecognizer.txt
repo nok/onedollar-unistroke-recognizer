@@ -8,7 +8,7 @@ name = $1 Unistroke Recognizer
 authorList = [Darius Morawiec](http://voidplus.de)
 
 # A web page for your library, NOT a direct link to where to download it.
-url = https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer
+url = https://github.com/voidplus/OneDollar-Unistroke-Recognizer
 
 # The category of your library, must be one (or many) of the following:
 #   "3D"            "Animation"     "Compilations"      "Data"          
