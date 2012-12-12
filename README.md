@@ -41,7 +41,7 @@ Processing Version: 1.5.1, 2.0b5, 2.0b6, 2.0b7
 
 Import the library, create the recognizer object, add gestures, bind callbacks, implement callbacks and run the recognizer:
 
-```
+```java
 import de.voidplus.dollar.*;
 
 OneDollar one;
@@ -71,7 +71,7 @@ void mouseReleased(){ one.end(100); }
 
 ### Data Structures
 
-```
+```java
 one.add("circle", new Integer[] {127,141,124,140,120,139 /* ... */ });
 
 // one.add("name", new Integer[] {x1,y1, x2,y2, x3,y3 /* ... */ });
@@ -80,7 +80,7 @@ one.add("circle", new Integer[] {127,141,124,140,120,139 /* ... */ });
 
 ### Settings & Debugging
 
-```
+```java
 import de.voidplus.dollar.*;
 
 OneDollar one;
@@ -115,7 +115,7 @@ void draw(){
 
 ### Callbacks
 
-```
+```java
 import de.voidplus.dollar.*;
 
 OneDollar one;
