@@ -96,7 +96,7 @@ void setup(){
 	
 									// onedollar unistroke algorithm
 	one.setMinScore(85);			// 85% similarity
-	one.setRotationAngle(3);		// 2 degree rotation, higher=faster, 360/3=120 calculations
+	one.setRotationAngle(3);		// 3 degree rotation, higher=faster, 360/3=120 calculations
 	one.setFragmentationRate(64); 	// 64 sample/remap of the gesture, lower=faster
   
 	println(one);					// print the settings to console
