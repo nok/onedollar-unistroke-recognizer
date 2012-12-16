@@ -2,6 +2,7 @@
 
 Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a template based gesture recognition, for [Processing](http://processing.org/).
 
+> If you like the library and want to support my passion, feel free to make any amount of [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RHL39P97FYZFU).
 
 ## About
 
@@ -10,7 +11,6 @@ The [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/) i
 Gestures can be recognised at any position, scale, and under any rotation. The system requires little training, achieving a 97% recognition rate with only one template for each gesture.
 
 > Wobbrock, J.O., Wilson, A.D. and Li, Y. (2007). [Gestures without libraries, toolkits or training: A $1 recognizer for user interface prototypes](http://faculty.washington.edu/wobbrock/pubs/uist-07.1.pdf). Proceedings of the ACM Symposium on User Interface Software and Technology (UIST '07). Newport, Rhode Island (October 7-10, 2007). New York: ACM Press, pp. 159-168.
-
 
 ## Download
 
@@ -48,7 +48,6 @@ OneDollar one;
 
 void setup(){
 	// ...
-
 	one = new OneDollar(this);
 	one.add("circle", new Integer[] {127,141,124,140,120,139,118,139 /* ... */ });
 	one.bind("circle","detected");
@@ -56,7 +55,6 @@ void setup(){
 
 void draw(){
 	// ...
-
 	one.check();
 }
 
@@ -87,7 +85,6 @@ OneDollar one;
 
 void setup(){
 	// ...
-	
 	one = new OneDollar(this);
 									// online gestures
 	one.setMinLength(50);			// set the minimum length
@@ -105,7 +102,6 @@ void setup(){
 
 void draw(){
 	// ...
-	
 	one.check();
 	
 	noFill(); stroke(255);
@@ -123,7 +119,6 @@ Foo foo;
 
 void setup(){
 	// ...
-	
 	one = new OneDollar(this);
 	foo = new Foo();
 	
@@ -134,7 +129,6 @@ void setup(){
 
 void draw(){
 	// ...
-	
 	one.check();
 }
 
