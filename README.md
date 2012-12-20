@@ -1,6 +1,6 @@
 # OneDollar-Unistroke-Recognizer
 
-Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a template based gesture recognition, for [Processing](http://processing.org/).
+Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a two-dimensional template based gesture recognition, for [Processing](http://processing.org/).
 
 > If you like the library and want to support my passion, feel free to make any amount of [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RHL39P97FYZFU).
 
@@ -14,7 +14,7 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 ## Download
 
-* [OneDollarUnistrokeRecognizer.zip v0.1](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
+* [OneDollarUnistrokeRecognizer.zip v0.2](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
 
 ## Installation
 
@@ -145,7 +145,8 @@ public class Foo {
 
 ## Snapshots
 
-![Snapshot](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/reference/p5snap.png)
+![Snapshot](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/reference/p5snap1.png)
+![Snapshot](https://raw.github.com/voidplus/OneDollar-Unistroke-Recognizer/master/reference/p5snap2.png)
 
 ## License
 

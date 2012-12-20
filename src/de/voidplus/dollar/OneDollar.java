@@ -27,7 +27,7 @@ public class OneDollar {
 	 */
 	public OneDollar(PApplet parent){
 
-		System.out.println("# OneDollar-Unistroke-Recognizer - v"+this.getVersion()+" - https://github.com/DariusMorawiec/OneDollar-Unistroke-Recognizer");
+		System.out.println("# OneDollar-Unistroke-Recognizer - v"+this.getVersion()+" - https://github.com/voidplus/OneDollar-Unistroke-Recognizer");
 		
 		parent.registerDispose(this);
 		this.parent 		= parent;
@@ -472,6 +472,6 @@ public class OneDollar {
 	public static String getVersion() {
 		return VERSION;
 	}
-	public final static String VERSION = "0.1";	
+	public final static String VERSION = "0.2";	
 	
 }

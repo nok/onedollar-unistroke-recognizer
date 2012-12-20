@@ -7,7 +7,7 @@ OneDollar one;
 
 void setup(){
   size(852,500);
-  background(0);
+  background(17);
   textFont(createFont("Arial", 11));
   smooth();
   
@@ -41,7 +41,7 @@ void detected(String gesture, int x, int y, int c_x, int c_y){
 
 
 void draw(){
-  background(0);
+  background(17);
   
   // draw circle background shape
   noFill(); stroke(30);
@@ -68,7 +68,7 @@ void draw(){
   text( "Position: "+(int)position.x+" / "+(int)position.y, 30, 60 );
   ellipse(position.x, position.y, 5, 5);
   
-  fill(231,0,239);
+  fill(0,238,174);
   text( "Centroid: "+(int)centroid.x+" / "+(int)centroid.y, 30, 80 );
   ellipse(centroid.x, centroid.y, 5, 5);
   
