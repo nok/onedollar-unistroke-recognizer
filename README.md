@@ -12,11 +12,15 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 ## Download
 
-* [OneDollarUnistrokeRecognizer.zip v0.2](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
+* [OneDollarUnistrokeRecognizer.zip v0.2.1](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
 
 ## Installation
 
 Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libraries folder of your Processing sketches. Reference and examples are included in the *OneDollarUnistrokeRecognizer* folder.
+
+## Usage
+
+Look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage), [Snapshots](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Snapshots)
 
 ## Dependencies
 
@@ -43,10 +47,6 @@ Processing Version:
 * [Binding](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
 * [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
 * [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
-
-## Usage
-
-Look into the wiki: [Usage](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage), [Snapshots](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Snapshots)
 
 ## License
 

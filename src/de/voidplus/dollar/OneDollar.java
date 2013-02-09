@@ -9,8 +9,9 @@ import processing.core.PApplet;
 import processing.core.PVector;
 
 
-public class OneDollar {
 
+public class OneDollar {
+	
 	private PApplet parent;
 	private HashMap<Integer,Candidate> candidates;
 	private HashMap<String,Gesture> templates;
@@ -23,11 +24,11 @@ public class OneDollar {
 	/**
 	 * Constructor of the recognizer.
 	 * 
-	 * @param	parent		reference of the processing sketch
+	 * @param	parent		Reference of the processing sketch (this).
 	 */
 	public OneDollar(PApplet parent){
 
-		System.out.println("# OneDollar-Unistroke-Recognizer - v"+this.getVersion()+" - https://github.com/voidplus/OneDollar-Unistroke-Recognizer");
+		System.out.println("# OneDollar-Unistroke-Recognizer - v"+this.getVersion()+" - https://github.com/voidplus/onedollar-unistroke-recognizer");
 		
 		parent.registerDispose(this);
 		this.parent 		= parent;
@@ -47,8 +48,8 @@ public class OneDollar {
 	/**
 	 * Add new template to recognizer.
 	 * 
-	 * @param 	name		name of template
-	 * @param 	points		points as array of template
+	 * @param 	name		Name of template.
+	 * @param 	points		Points as array of template.
 	 * @return
 	 */
 	public OneDollar addGesture( String name, Integer[] points ){
@@ -74,7 +75,7 @@ public class OneDollar {
 	/**
 	 * Remove specified template from recognizer.
 	 * 
-	 * @param 	name		name of template
+	 * @param 	name		Name of template.
 	 * @return
 	 */
 	public OneDollar removeGesture( String name ){
@@ -94,11 +95,12 @@ public class OneDollar {
 	 * @return
 	 */
 	public synchronized Result check(){
+		
 		Result result = null;
-		if( this.templates.size()>0 ){
+		if (this.hasTemplates()) {
 			Candidate motion = null;
 			
-			if( this.candidates.size()>0 ){
+			if (this.hasCandidates()) {
 				for( Integer id : this.candidates.keySet() ){
 					motion = this.candidates.get( id );
 
@@ -174,6 +176,34 @@ public class OneDollar {
 		return result;
 	}
 
+	/**
+	 * Internal helper method.
+	 * 
+	 * @return
+	 */
+	private boolean hasTemplates() {
+		if (this.templates != null) {
+			if (this.templates.size() > 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Internal helper method.
+	 * 
+	 * @return
+	 */
+	private boolean hasCandidates(){
+		if (this.candidates != null) {
+			if (this.candidates.size() > 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 	/**
 	 * Draw all candidates points as lines.
@@ -191,8 +221,8 @@ public class OneDollar {
 	/**
 	 * Bind sketch callback to candidate.
 	 * 
-	 * @param 	template	name of added template
-	 * @param 	callback	name of callback in current sketch
+	 * @param 	template	Name of added template.
+	 * @param 	callback	Name of callback in current sketch.
 	 * @return
 	 */
 	public OneDollar bind( String template, String callback ){
@@ -203,9 +233,9 @@ public class OneDollar {
 	/**
 	 * Bind object callback to candidate.
 	 * 
-	 * @param 	template	name of added template
-	 * @param 	object		object, which implemented the callback
-	 * @param 	callback	name of callback
+	 * @param 	template	Name of added template.
+	 * @param 	object		Object, which implemented the callback.
+	 * @param 	callback	Name of callback.
 	 * @return
 	 */
 	public OneDollar bind( String template, Object object, String callback ){
@@ -219,9 +249,9 @@ public class OneDollar {
 	/**
 	 * Bind sketch callback to candidate.
 	 * 
-	 * @param 	id			unique id of candidate
-	 * @param 	template	name of added template
-	 * @param 	callback	name of callback in current sketch
+	 * @param 	id			Unique id of candidate.
+	 * @param 	template	Name of added template.
+	 * @param 	callback	Name of callback in current sketch.
 	 * @return
 	 */
 	public OneDollar bind( Integer id, String template, String callback ){
@@ -233,10 +263,10 @@ public class OneDollar {
 	/**
 	 * Bind object callback to candidate.
 	 * 
-	 * @param 	id			unique id of candidate
-	 * @param 	template	name of added template
-	 * @param 	object		object, which implemented the callback
-	 * @param 	callback	name of callback
+	 * @param 	id			Unique id of candidate.
+	 * @param 	template	Name of added template.
+	 * @param 	object		Object, which implemented the callback.
+	 * @param 	callback	Name of callback.
 	 * @return
 	 */
 	public OneDollar bind( Integer id, String template, Object object, String callback ){
@@ -250,8 +280,8 @@ public class OneDollar {
 	/**
 	 * Unbind callback from candidate.
 	 * 
-	 * @param 	id			unique id of candidate
-	 * @param 	template	name of the added template
+	 * @param 	id			Unique id of candidate.
+	 * @param 	template	Name of the added template.
 	 * @return
 	 */
 	public OneDollar unbind( Integer id, String template ){
@@ -265,8 +295,8 @@ public class OneDollar {
 	/**
 	 * Start new candidate.
 	 * 
-	 * @param 	id			unique id of candidate
-	 * @param 	online		explicit decision for online gesture
+	 * @param 	id			Unique id of candidate.
+	 * @param 	online		Explicit decision for online gesture.
 	 * @see		#setOnline(Boolean)
 	 * @return
 	 */
@@ -281,7 +311,7 @@ public class OneDollar {
 	/**
 	 * Start new candidate with the global defined setting for online gestures.
 	 * 
-	 * @param 	id			unique id of candidate
+	 * @param 	id			Unique id of candidate.
 	 * @see		#setOnline(Boolean)
 	 */
 	public synchronized void start( Integer id ){
@@ -292,13 +322,15 @@ public class OneDollar {
 	/**
 	 * Add a new point to specified candidate.
 	 * 
-	 * @param 	id			unique id of candidate
-	 * @param 	point		new x and y position of the candidate
+	 * @param 	id			Unique id of candidate.
+	 * @param 	point		New x and y position of the candidate.
 	 * @return			
 	 */
 	public synchronized void update( Integer id, PVector point ){
 		if( candidates.containsKey( id ) ){
 			candidates.get( id ).addPosition( point );
+		} else {
+			this.start( id );
 		}
 	}
 
@@ -306,9 +338,9 @@ public class OneDollar {
 	/**
 	 * Add a new point to specified candidate.
 	 * 
-	 * @param 	id			unique id of candidate
-	 * @param 	x			new x position of the candidate
-	 * @param 	y			new y position of the candidate
+	 * @param 	id			Unique id of candidate.
+	 * @param 	x			New x position of the candidate.
+	 * @param 	y			New y position of the candidate.
 	 */
 	public synchronized void update( Integer id, float x, float y ){
 		this.update( id, new PVector( x, y ) );
@@ -318,7 +350,7 @@ public class OneDollar {
 	/**
 	 * Stop and delete a candidate.
 	 * 
-	 * @param 	id			unique id of candidate
+	 * @param 	id			Unique id of candidate.
 	 */
 	public synchronized void end( Integer id ){
 		if( candidates.containsKey( id ) ){
@@ -330,7 +362,7 @@ public class OneDollar {
 	/**
 	 * Show result messages.
 	 * 
-	 * @param 	value
+	 * @param 	value		Show or hide.
 	 * @return
 	 */
 	public OneDollar setVerbose(Boolean value){
@@ -342,7 +374,7 @@ public class OneDollar {
 	/**
 	 * Set the minimum equality in percent between candidate and template.
 	 * 
-	 * @param 	percent		integer between 0 and 100
+	 * @param 	percent		Integer between 0 and 100.
 	 * @return
 	 */
 	public OneDollar setMinScore( Integer percent ){
@@ -366,7 +398,7 @@ public class OneDollar {
 	/**
 	 * Set the time to live of candidates points.
 	 * 
-	 * @param 	ms			time in millisecond		
+	 * @param 	ms			Time in millisecond.		
 	 * @return
 	 */
 	public OneDollar setMaxTime( Integer ms ){
@@ -380,7 +412,7 @@ public class OneDollar {
 	/**
 	 * Set the minimum length of a candidate.
 	 * 
-	 * @param 	length		length in pixel
+	 * @param 	length		Length in pixel.
 	 * @return
 	 */
 	public OneDollar setMinLength( Integer length ){
@@ -394,7 +426,7 @@ public class OneDollar {
 	/**
 	 * Set the maximum length of a candidate.
 	 * 
-	 * @param 	length		length in pixel
+	 * @param 	length		Length in pixel.
 	 * @return
 	 */
 	public OneDollar setMaxLength( Integer length ){
@@ -408,7 +440,7 @@ public class OneDollar {
 	/**
 	 * Set the rotation angle of the Unistroke Recognition algorithm.
 	 * 
-	 * @param 	angle		angle in degree
+	 * @param 	angle		Angle in degree.
 	 * @return
 	 */
 	public OneDollar setRotationAngle( Integer degree ){
@@ -449,7 +481,7 @@ public class OneDollar {
 						+ "#       Rotation Angle:                 "+this.recognizer.getRotationAngle()+"\n";
 		return feedback;
 	}
-
+	
 	
 	/**
 	 * Delete references.
@@ -472,6 +504,6 @@ public class OneDollar {
 	public static String getVersion() {
 		return VERSION;
 	}
-	public final static String VERSION = "0.2";	
+	public final static String VERSION = "0.2.1";
 	
 }
