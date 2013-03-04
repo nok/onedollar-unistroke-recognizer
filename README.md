@@ -20,11 +20,20 @@ Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libra
 
 ## Usage
 
-Look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage), [Snapshots](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Snapshots)
+I recommend you to look into the wiki for first instructions: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
 
-## Dependencies
+## Snapshot
 
-None.
+![Snapshots](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/reference/p5snap2.png)
+
+## Examples
+
+* [Simple](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e0_simple/e0_simple.pde)
+* [Basic](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e1_basic/e1_basic.pde)
+* [Callbacks](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e2_several_callbacks/e2_several_callbacks.pde)
+* [Binding](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
+* [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
+* [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
 
 ## Tested
 
@@ -39,14 +48,11 @@ Processing Version:
 * 2.0b5
 * 2.0b6
 * 2.0b7
+* 2.0b8
 
-## Examples
+## Dependencies
 
-* [Basic](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e1_basic/e1_basic.pde)
-* [Callbacks](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e2_several_callbacks/e2_several_callbacks.pde)
-* [Binding](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
-* [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
-* [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
+None.
 
 ## License
 
