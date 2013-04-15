@@ -5,8 +5,8 @@ OneDollar one;
 
 void setup(){
   size(400,400);
-  background(241);
-  smooth(); noFill(); stroke(0);
+  background(250);
+  smooth(); noFill(); stroke(30);
   
   one = new OneDollar(this);
   one.setVerbose(true);         // activate verbose mode
@@ -43,7 +43,7 @@ void detected(String gesture, int x, int y, int c_x, int c_y){
 
 
 void draw(){
-  background(241);  
+  background(250);  
   one.draw();
   one.check();
 }

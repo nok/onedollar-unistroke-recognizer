@@ -17,7 +17,7 @@ public class OneDollar {
 	private HashMap<String,Gesture> templates;
 	private HashMap<String,Callback> callbacks;
 	private Recognizer recognizer;
-	private Boolean online, verbose;
+	private Boolean verbose;
 	private Integer maxLength, maxTime;	
 
 	
@@ -36,7 +36,6 @@ public class OneDollar {
 		this.callbacks 		= new HashMap<String,Callback>();
 		this.recognizer 	= new Recognizer( parent, 64, 250, 45, 2 );
 
-		this.setOnline(true);
 		this.setMinLength(50);
 		this.setMaxLength(2500);	
 		this.setMaxTime(1000);
@@ -67,6 +66,14 @@ public class OneDollar {
 		}
 		return this;
 	}
+
+	/**
+	 * Add new template to recognizer.
+	 * 
+	 * @param 	name		Name of template.
+	 * @param 	points		Points as array of template.
+	 * @return
+	 */
 	public OneDollar add( String name, Integer[] points ){
 		return this.addGesture(name, points);
 	}
@@ -84,6 +91,13 @@ public class OneDollar {
 		}
 		return this;
 	}
+
+	/**
+	 * Remove specified template from recognizer.
+	 * 
+	 * @param 	name		Name of template.
+	 * @return
+	 */
 	public OneDollar remove( String name ){
 		return this.removeGesture(name);
 	}
@@ -239,8 +253,11 @@ public class OneDollar {
 	 * @return
 	 */
 	public OneDollar bind( String template, Object object, String callback ){
-		if( !this.callbacks.containsKey( template ) ){
-			this.callbacks.put( template, new Callback( object, callback ) );
+		String[] templates = template.split("\\s+");
+		for( String _template : templates ){
+			if( !this.callbacks.containsKey( _template ) ){
+				this.callbacks.put( _template, new Callback( object, callback ) );
+			}
 		}
 		return this;
 	}
@@ -270,8 +287,11 @@ public class OneDollar {
 	 * @return
 	 */
 	public OneDollar bind( Integer id, String template, Object object, String callback ){
-		if( candidates.containsKey( id ) && templates.containsKey( template ) ){
-			candidates.get( id ).addBind( template, object, callback );
+		String[] templates = template.split("\\s+");
+		for( String _template : templates ){
+			if( candidates.containsKey( id ) && this.templates.containsKey( _template ) ){
+				candidates.get( id ).addBind( _template, object, callback );
+			}
 		}
 		return this;
 	}
@@ -296,26 +316,13 @@ public class OneDollar {
 	 * Start new candidate.
 	 * 
 	 * @param 	id			Unique id of candidate.
-	 * @param 	online		Explicit decision for online gesture.
-	 * @see		#setOnline(Boolean)
 	 * @return
 	 */
-	public synchronized OneDollar start( Integer id, Boolean online ){
+	public synchronized OneDollar start( Integer id ){
 		if( !candidates.containsKey( id ) ){
-			candidates.put( id, new Candidate( this.parent, id, online, this.maxLength, this.maxTime ) );
+			candidates.put( id, new Candidate( this.parent, id, this.maxLength, this.maxTime ) );
 		}
 		return this;
-	}
-
-
-	/**
-	 * Start new candidate with the global defined setting for online gestures.
-	 * 
-	 * @param 	id			Unique id of candidate.
-	 * @see		#setOnline(Boolean)
-	 */
-	public synchronized void start( Integer id ){
-		this.start( id, this.online );
 	}
 
 
@@ -379,18 +386,6 @@ public class OneDollar {
 	 */
 	public OneDollar setMinScore( Integer percent ){
 		this.recognizer.setMinScore( (float)percent );
-		return this;
-	}
-
-
-	/**
-	 * Set, whether you use online gestures.
-	 * 
-	 * @param 	bool
-	 * @return
-	 */
-	public OneDollar setOnline( Boolean bool ) {
-		this.online = bool;
 		return this;
 	}
 
@@ -471,7 +466,6 @@ public class OneDollar {
 	public String toString(){
 		String feedback = "# OneDollar-Unistroke-Recognizer\n"
 						+ "#    Gesture Recognition Settings:\n"
-//						+ "#       Online Gestures:                "+this.online+"\n"
 						+ "#       Minimum Score:                  "+this.recognizer.getScore()+" %\n"
 						+ "#       Minimum Path Length:            "+this.recognizer.getMinLength()+"\n"
 						+ "#       Maximum Path Length:            "+this.maxLength+"\n"
@@ -491,7 +485,6 @@ public class OneDollar {
 		this.candidates = null;
 		this.templates = null;
 		this.recognizer = null;
-		this.online = null;
 		this.verbose = null;
 	}
 
@@ -504,6 +497,6 @@ public class OneDollar {
 	public static String getVersion() {
 		return VERSION;
 	}
-	public final static String VERSION = "0.2.1";
+	public final static String VERSION = "0.2.2";
 	
 }

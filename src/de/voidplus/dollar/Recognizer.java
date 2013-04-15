@@ -113,6 +113,7 @@ public class Recognizer {
 	}
 
 	protected LinkedList<PVector> getRotateToZero( LinkedList<PVector> _points ){
+		
 		PVector centroid = this.getCentroid( _points );
 		Float theta = PApplet.atan2( centroid.y-_points.getFirst().y, centroid.x-_points.getFirst().x );
 		
@@ -121,7 +122,7 @@ public class Recognizer {
 
 	protected PVector getCentroid( LinkedList<PVector> _points ){
 		
-		PVector centroid = new PVector( 0.0f, 0.0f );
+		PVector centroid = new PVector( 0.0f, 0.0f );	
 		Integer length = _points.size();		
 
 		ListIterator<PVector> iterator = _points.listIterator();
@@ -136,7 +137,7 @@ public class Recognizer {
 		return centroid;
 	}
 	
-	protected LinkedList<PVector> getRotateBy( LinkedList<PVector> _points, Float _theta){
+	protected LinkedList<PVector> getRotateBy( LinkedList<PVector> _points, Float _theta ){
 		
 		PVector centroid = this.getCentroid( _points );
 		Float sin = PApplet.sin( _theta );
@@ -214,6 +215,8 @@ public class Recognizer {
 		
 			LinkedList<PVector> points;
 			points = this.getSample( _gesture );
+			
+			PVector centroid = this.getCentroid( points );
 			points = this.getRotateToZero( points );
 			points = this.getScaleToSquare( points, this.getBoundingBox( points ) );
 			points = this.getTranslateToOrigin( points );

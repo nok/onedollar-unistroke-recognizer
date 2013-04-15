@@ -5,8 +5,8 @@ OneDollar one;
 
 void setup(){
   size(400,400);
-  background(241);
-  smooth(); noFill(); stroke(0);
+  background(250);
+  smooth(); noFill(); stroke(30);
   
   one = new OneDollar(this);
   one.setVerbose(true);
@@ -16,7 +16,7 @@ void setup(){
 }
 
 void draw(){
-  background(241);  
+  background(250);  
   one.draw();
   one.check();
 }

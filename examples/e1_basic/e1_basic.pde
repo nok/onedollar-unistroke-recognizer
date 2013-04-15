@@ -7,7 +7,7 @@ OneDollar one;
 
 void setup(){
   size(852,500);
-  background(17);
+  background(250);
   textFont(createFont("Arial", 11));
   smooth();
   
@@ -26,8 +26,10 @@ void setup(){
   // http://depts.washington.edu/aimgroup/proj/dollar/unistrokes.gif
 
   // bind callbacks:
-  one.bind("circle","detected");
-  one.bind("triangle","detected");
+  one.bind("circle triangle","detected");
+  // or
+  // one.bind("circle","detected");
+  // one.bind("triangle","detected");
 }
 
 
@@ -41,28 +43,28 @@ void detected(String gesture, int x, int y, int c_x, int c_y){
 
 
 void draw(){
-  background(17);
+  background(250);
   
   // draw circle background shape
-  noFill(); stroke(30);
+  noFill(); stroke(200);
   if(gesture_name.equals("circle")){
-    stroke(100);
+    stroke(0);
   }
   ellipse(width/10*3,height/2,200,200);
   
   // draw triangle background shape
-  stroke(30);
+  stroke(200);
   if(gesture_name.equals("triangle")){
-    stroke(100);
+    stroke(0);
   }
   pushMatrix();
     translate(width/10*7,height/2);
     triangle(0, -100, 100, 100, -100, 100);
   popMatrix();
   
-  fill(254); noStroke();
+  fill(30); noStroke();
   text( "Detected gesture: "+gesture_name, 30, 40 );
-  text( "Draw a circle or triangle.", 30, height-30);
+  text( "Draw anticlockwise a circle or triangle.", 30, height-30 );
   
   fill(0,70,245);
   text( "Position: "+(int)position.x+" / "+(int)position.y, 30, 60 );
@@ -72,7 +74,7 @@ void draw(){
   text( "Centroid: "+(int)centroid.x+" / "+(int)centroid.y, 30, 80 );
   ellipse(centroid.x, centroid.y, 5, 5);
   
-  noFill(); stroke(220);
+  noFill(); stroke(50);
   one.draw();                   // draw the relevant candidates
   one.check();                  // run the gesture detection
 }

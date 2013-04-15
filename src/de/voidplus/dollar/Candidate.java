@@ -16,15 +16,13 @@ public class Candidate {
 	private Integer		birth;
 	private Deque<PointInTime> line = new LinkedList<PointInTime>();
 	private HashMap<String,Callback> binds;
-	private Boolean 	online;
 	private Integer		ruleMaxLength, ruleMaxTime;
 	
-	protected Candidate( PApplet _parent, Integer _id, Boolean _online, Integer _ruleMaxLength, Integer _ruleMaxTime ){
+	protected Candidate( PApplet _parent, Integer _id, Integer _ruleMaxLength, Integer _ruleMaxTime ){
 		this.parent 		= _parent;
 		this.id 			= _id;
 		this.birth			= _parent.millis();
 		this.line			= new LinkedList<PointInTime>();
-		this.online 		= _online;
 		this.ruleMaxLength	= _ruleMaxLength;
 		this.ruleMaxTime	= _ruleMaxTime;
 	}
@@ -34,7 +32,7 @@ public class Candidate {
 		Integer deltaTime = this.parent.millis()-birth;
 		this.line.add( new PointInTime( _point, deltaTime ) );
 		
-		if( this.line.size()>1 && this.online ){
+		if( this.line.size()>1 ){
 			while(true){
 				if( this.isTooOld( this.line, this.ruleMaxTime ) ){
 					this.line.removeFirst();
@@ -111,7 +109,7 @@ public class Candidate {
 			while(iterator.hasNext()){
 				PVector point = ((PointInTime)iterator.next()).getPosition();
 				this.parent.vertex(point.x, point.y);
-				this.parent.ellipse(point.x, point.y,2,2);
+				this.parent.ellipse(point.x, point.y,1.5f,1.5f);
 			}
 		this.parent.endShape();
 	}

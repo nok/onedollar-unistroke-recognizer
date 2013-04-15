@@ -1,16 +1,17 @@
 import de.voidplus.dollar.*;
 
 OneDollar one;
+String gesture_name;
 
 void setup(){
   size(852,500);
-  background(17);
-  
+  background(250);
+  textFont(createFont("Arial", 11));
   noFill();
-  stroke(220);
+  stroke(30);
   smooth();
   
-  println("Draw a circle or triangle.");
+  gesture_name = "-";
   
   one = new OneDollar(this);
   one.setVerbose(true);          // activate verbose mode
@@ -25,8 +26,10 @@ void setup(){
   
   // 2.
   // bind callbacks:
-  one.bind("circle","detected"); // gesture name, callback name 
-  one.bind("triangle","detected");
+  one.bind("circle triangle","detected");
+  // or
+  // one.bind("circle","detected");
+  // one.bind("triangle","detected"); 
 }
 
 // 3.
@@ -37,8 +40,13 @@ void detected(String gesture, int x, int y, int c_x, int c_y){
 
 
 void draw(){
-  background(17);
+  background(250);
   
+  fill(30); noStroke();
+  text( "Detected gesture: "+gesture_name, 30, 40 );
+  text( "Draw anticlockwise a circle or triangle.", 30, height-30 );
+  
+  noFill(); stroke(50);
   one.draw();                    // draw the relevant candidates
   
   // 4.
