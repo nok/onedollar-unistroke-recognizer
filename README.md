@@ -18,13 +18,62 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libraries folder of your Processing sketches. Reference and examples are included in the *OneDollarUnistrokeRecognizer* folder.
 
+
 ## Usage
 
-I recommend you to look into the wiki for first instructions: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
+Import the library and create a instance:
 
-## Snapshot
+```
+import de.voidplus.dollar.*;
 
-![Snapshots](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/reference/p5snap2.png)
+OneDollar one = new OneDollar(this);
+```
+
+Add templates, which will be compare with your candidates:
+
+```
+one.add("circle", new Integer[] {127,141,124,140 /* x1,y1, x2,y2 ... */ });
+
+// one.remove("circle");
+```
+Bind callbacks, which will execute by success:
+
+```
+one.bind("circle","callback_name");
+
+// one.unbind("circle");
+```
+
+Implement the callbacks:
+
+```
+void callback_name(String gesture, int x, int y, int c_x, int c_y){
+  println("Detected gesture: "+gesture+" (Position: X: "+x+" / Y: "+y+", Centroid: X: "+c_x+" / Y: "+c_y+")");
+}
+```
+
+Input data via unique IDs:
+
+```
+void mousePressed(){ one.start(100); }  // 100 = ID
+void mouseDragged(){ one.update(100, mouseX, mouseY); }
+void mouseReleased(){ one.end(100); }
+```
+
+Draw the move of candidates:
+
+```
+one.draw();
+```
+
+Run the gesture recognition:
+
+```
+one.check();
+```
+
+For extended instructions look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
+
 
 ## Examples
 
@@ -34,6 +83,12 @@ I recommend you to look into the wiki for first instructions: [**Usage**](https:
 * [Binding](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
 * [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
 * [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
+
+
+## Snapshot
+
+![Snapshots](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/reference/p5snap2.png)
+
 
 ## Tested
 
@@ -53,6 +108,10 @@ Processing Version:
 ## Dependencies
 
 None.
+
+## Questions?
+
+Don't be shy and feel free to contact me via [Twitter](https://twitter.com/darius_morawiec).
 
 ## License
 
