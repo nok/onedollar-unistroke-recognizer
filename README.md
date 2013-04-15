@@ -23,7 +23,7 @@ Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libra
 
 Import the library and create a instance:
 
-```
+```java
 import de.voidplus.dollar.*;
 
 OneDollar one = new OneDollar(this);
@@ -31,14 +31,14 @@ OneDollar one = new OneDollar(this);
 
 Add templates, which will be compare with your candidates:
 
-```
+```java
 one.add("circle", new Integer[] {127,141,124,140 /* x1,y1, x2,y2 ... */ });
 
 // one.remove("circle");
 ```
 Bind callbacks, which will execute by success:
 
-```
+```java
 one.bind("circle","callback_name");
 
 // one.unbind("circle");
@@ -46,7 +46,7 @@ one.bind("circle","callback_name");
 
 Implement the callbacks:
 
-```
+```java
 void callback_name(String gesture, int x, int y, int c_x, int c_y){
   println("Detected gesture: "+gesture+" (Position: X: "+x+" / Y: "+y+", Centroid: X: "+c_x+" / Y: "+c_y+")");
 }
@@ -54,7 +54,7 @@ void callback_name(String gesture, int x, int y, int c_x, int c_y){
 
 Input data via unique IDs:
 
-```
+```java
 void mousePressed(){ one.start(100); }  // 100 = ID
 void mouseDragged(){ one.update(100, mouseX, mouseY); }
 void mouseReleased(){ one.end(100); }
@@ -62,13 +62,13 @@ void mouseReleased(){ one.end(100); }
 
 Draw the move of candidates:
 
-```
+```java
 one.draw();
 ```
 
 Run the gesture recognition:
 
-```
+```java
 one.check();
 ```
 
