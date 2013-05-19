@@ -31,6 +31,8 @@ public class OneDollar {
 		System.out.println("# OneDollar-Unistroke-Recognizer - v"+this.getVersion()+" - https://github.com/voidplus/onedollar-unistroke-recognizer");
 		
 		parent.registerDispose(this);
+		parent.registerPre(this);
+		
 		this.parent 		= parent;
 		this.candidates 	= new HashMap<Integer,Candidate>();
 		this.callbacks 		= new HashMap<String,Callback>();
@@ -108,7 +110,7 @@ public class OneDollar {
 	 * 
 	 * @return
 	 */
-	public synchronized Result check(){
+	private synchronized Result check(){
 		Result result = null;
 		
 		if (this.hasTemplates()) {
@@ -159,7 +161,9 @@ public class OneDollar {
 		
 		return result;
 	}
-
+	public void pre(){
+		this.check();
+	}
 	
 	/**
 	 * Convert Deque to LinkedList

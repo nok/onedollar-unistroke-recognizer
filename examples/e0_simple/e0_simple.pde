@@ -47,11 +47,7 @@ void draw(){
   text( "Draw anticlockwise a circle or triangle.", 30, height-30 );
   
   noFill(); stroke(50);
-  one.draw();                    // draw the relevant candidates
-  
-  // 4.
-  // run the recognizer:
-  one.check();                   // run the gesture detection
+  one.draw();                    // optionally, you can draw the relevant candidates
 }
 
 

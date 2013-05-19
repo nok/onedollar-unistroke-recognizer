@@ -44,8 +44,7 @@ void detected(String gesture, int x, int y, int c_x, int c_y){
 
 void draw(){
   background(250);  
-  one.draw();
-  one.check();
+  one.draw();                   // optionally, you can draw the relevant candidates
 }
 
 

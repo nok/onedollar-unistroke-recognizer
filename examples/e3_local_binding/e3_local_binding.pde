@@ -17,8 +17,7 @@ void setup(){
 
 void draw(){
   background(250);  
-  one.draw();
-  one.check();
+  one.draw();                   // optionally, you can draw the relevant candidates
 }
 
 

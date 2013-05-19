@@ -14,7 +14,7 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 ## Download
 
-* [OneDollarUnistrokeRecognizer.zip v0.2.3](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
+* [OneDollarUnistrokeRecognizer.zip v0.2.4](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
 
 
 ## Installation

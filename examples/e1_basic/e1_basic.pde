@@ -75,8 +75,7 @@ void draw(){
   ellipse(centroid.x, centroid.y, 5, 5);
   
   noFill(); stroke(50);
-  one.draw();                   // draw the relevant candidates
-  one.check();                  // run the gesture detection
+  one.draw();                   // optionally, you can draw the relevant candidates
 }
 
 
