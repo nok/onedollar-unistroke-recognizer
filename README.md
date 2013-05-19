@@ -80,10 +80,13 @@ For extended instructions look into the wiki: [**Usage**](https://github.com/voi
 * [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
 * [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
 
+<!--
+
 With dependencies:
 
 * [LeapMotion](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e6_leapmotion/e6_leapmotion.pde) with [https://github.com/voidplus/leap-motion-processing](https://github.com/voidplus/leap-motion-processing)
 
+-->
 
 ## Tested
 
