@@ -109,76 +109,45 @@ public class OneDollar {
 	 * @return
 	 */
 	public synchronized Result check(){
-		
 		Result result = null;
+		
 		if (this.hasTemplates()) {
 			Candidate motion = null;
 			
 			if (this.hasCandidates()) {
 				for( Integer id : this.candidates.keySet() ){
 					motion = this.candidates.get( id );
-
-					Deque<PointInTime> line = motion.getLine();
-					LinkedList<PVector> positions = new LinkedList<PVector>();
-
-					ListIterator<PointInTime> iterator = (ListIterator<PointInTime>)line.iterator();
-					while(iterator.hasNext()){
-						PointInTime point = (PointInTime)iterator.next();
-						PVector position = point.getPosition();
-						positions.add( position );
-					}
+					LinkedList<PVector> positions = this.convert( motion.getLine() );
 					
 					// binded templates
-					if( motion.hasBinds() ){		
+					if (motion.hasBinds()) {
+						
 						result = this.recognizer.check( positions, this.templates, motion.getBinds() );
-						if( result!=null ){
+						if (result != null) {
+							this.log( id,  result );
 							
-							if( this.verbose ){
-								String object = this.candidates.get( id ).getBind( result.getName() ).getObjectClass();
-								String method = this.candidates.get( id ).getBind( result.getName() ).getCallbackString();
-								System.out.println(
-										"# Candidate: "+id+
-										" # Template: "+result.getName()+" ("+result.getScore()+"%)"+
-										" # Object: "+object+
-										" # Method: "+method
-								);
-							}
 							motion.fire( result.getName() );
 							
 							if( this.callbacks.containsKey( result.getName() ) ){
-								if( this.verbose ){
-									String object = this.callbacks.get( result.getName() ).getObjectClass();
-									String method = this.callbacks.get( result.getName() ).getCallbackString();
-									System.out.println(
-											"# Candidate: "+id+
-											" # Template: "+result.getName()+" ("+result.getScore()+"%)"+
-											" # Object: "+object+
-											" # Method: "+method
-									);
-								}
 								this.callbacks.get( result.getName() ).fire( motion, result.getName() );
+								this.log( id,  result );
 							}
-							this.candidates.get( id ).clear( positions.getLast() );	
+							this.candidates.get( id ).clear( positions.getLast() );
+							
 							return result;
 						}
 					}
 					
 					// all templates
-					if( this.callbacks.size()>0 ){
+					if (this.hasCallbacks()) {
+						
 						result = this.recognizer.check( positions, this.templates, this.callbacks );
-						if( result!=null ){
-							if( this.verbose ){
-								String object = this.callbacks.get( result.getName() ).getObjectClass();
-								String method = this.callbacks.get( result.getName() ).getCallbackString();
-								System.out.println(
-										"# Candidate: "+id+
-										" # Template: "+result.getName()+" ("+result.getScore()+"%)"+
-										" # Object: "+object+
-										" # Method: "+method
-								);
-							}
+						if (result != null) {
+							this.log(id, result);
+							
 							this.callbacks.get( result.getName() ).fire( motion, result.getName() );
 							this.candidates.get( id ).clear( positions.getLast() );
+							
 							return result;
 						}
 					}
@@ -187,9 +156,48 @@ public class OneDollar {
 			}
 
 		}
+		
 		return result;
 	}
 
+	
+	/**
+	 * Convert Deque to LinkedList
+	 * 
+	 * @param line
+	 * @return
+	 */
+	private LinkedList<PVector> convert(Deque<PointInTime> line){
+		LinkedList<PVector> positions = new LinkedList<PVector>();
+		ListIterator<PointInTime> iterator = (ListIterator<PointInTime>)line.iterator();
+		while(iterator.hasNext()){
+			PointInTime point = (PointInTime)iterator.next();
+			PVector position = point.getPosition();
+			positions.add( position );
+		}
+		return positions;
+	}
+	
+	
+	/**
+	 * Print the result to the console.
+	 * @param id
+	 * @param result
+	 */
+	private void log(Integer id, Result result) {
+		if (this.verbose) {
+			String object = this.callbacks.get( result.getName() ).getObjectClass();
+			String method = this.callbacks.get( result.getName() ).getCallbackString();
+			System.out.println(
+					"# Candidate: "+id+
+					" # Template: "+result.getName()+" ("+result.getScore()+"%)"+
+					" # Object: "+object+
+					" # Method: "+method
+			);
+		}
+	}
+
+	
 	/**
 	 * Internal helper method.
 	 * 
@@ -204,18 +212,34 @@ public class OneDollar {
 		return false;
 	}
 	
+	
 	/**
 	 * Internal helper method.
 	 * 
 	 * @return
 	 */
-	private boolean hasCandidates(){
+	private boolean hasCandidates() {
 		if (this.candidates != null) {
 			if (this.candidates.size() > 0) {
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	
+	/**
+	 * Internal helper method.
+	 * 
+	 * @return
+	 */
+	private boolean hasCallbacks(){
+		if (this.callbacks != null) {
+			if (this.callbacks.size() > 0) {
+				return true;
+			}
+		}
+		return false;		
 	}
 	
 	
@@ -497,6 +521,6 @@ public class OneDollar {
 	public static String getVersion() {
 		return VERSION;
 	}
-	public final static String VERSION = "0.2.2";
+	public final static String VERSION = "0.2.3";
 	
 }
