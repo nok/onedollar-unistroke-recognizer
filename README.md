@@ -60,14 +60,6 @@ void mouseDragged(){ one.update(100, mouseX, mouseY); }
 void mouseReleased(){ one.end(100); }
 ```
 
-Run the gesture recognition:
-
-```java
-void draw(){
-  one.check();
-}
-```
-
 For extended instructions look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
 
 
