@@ -27,7 +27,7 @@ Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libra
 
 Import the library, create the *OneDollar* object, add gestures, bind and implement callbacks. That's all, have fun!
 
-```
+```java
 import de.voidplus.dollar.*;
 
 OneDollar one;
