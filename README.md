@@ -57,7 +57,6 @@ void detected(String gesture, int x, int y, int centroid_x, int centroid_y){
 void mousePressed(){ one.start(100); }  // 100 = id
 void mouseDragged(){ one.update(100, mouseX, mouseY); }
 void mouseReleased(){ one.end(100); }
-
 ```
 
 For extended instructions look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
