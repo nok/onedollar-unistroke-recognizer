@@ -24,40 +24,40 @@ Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libra
 
 ## Usage
 
-Import the library and create a instance:
+
+Import the library, create the *OneDollar* object, add gestures, bind and implement callbacks. That's all, have fun!
 
 ```java
 import de.voidplus.dollar.*;
-OneDollar one = new OneDollar(this);
-```
 
-Add templates, which will be compare with your candidates:
+OneDollar one;
 
-```java
-one.add("circle", new Integer[] {127,141,124,140 /* x1,y1, x2,y2 ... */ });
-// one.remove("circle");
-```
-Bind callbacks, which will execute by success:
-
-```java
-one.bind("circle","callback_name");
-// one.unbind("circle");
-```
-
-Implement the callbacks:
-
-```java
-void callback_name(String gesture, int x, int y, int c_x, int c_y){
-  println("Detected gesture: "+gesture+" (Position: X: "+x+" / Y: "+y+", Centroid: X: "+c_x+" / Y: "+c_y+")");
+void setup(){
+    // ...
+    
+    one = new OneDollar(this);
+    
+    one.add("circle", new Integer[] {127,141,124,140,120,139,118,139 /* ... */ });
+    one.add("triangle", new Integer[] {137,139,135,141,133,144,132,146 /* ... */ });
+    
+    one.bind("circle triangle","detected");
 }
-```
 
-Input data via unique IDs:
+void draw(){
+    // ...
+    
+    noFill(); stroke(50);
+	one.draw(); // optionally, you can draw the relevant candidates
+}
 
-```java
-void mousePressed(){ one.start(100); }  // 100 = ID
+void detected(String gesture, int x, int y, int centroid_x, int centroid_y){
+	println("Detected gesture: "+gesture+" (Position: X: "+x+" / Y: "+y+", Centroid: X: "+centroid_x+" / Y: "+centroid_y+")");
+}
+
+void mousePressed(){ one.start(100); }  // 100 = id
 void mouseDragged(){ one.update(100, mouseX, mouseY); }
 void mouseReleased(){ one.end(100); }
+
 ```
 
 For extended instructions look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
