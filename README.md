@@ -27,23 +27,24 @@ Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libra
 
 Import the library, create the *OneDollar* object, add gestures, bind and implement callbacks. That's all, have fun!
 
-```java
+```
 import de.voidplus.dollar.*;
 
 OneDollar one;
 
 void setup(){
+    size(500, 500);
+    background(255);
     // ...
     
     one = new OneDollar(this);
-    
     one.add("circle", new Integer[] {127,141,124,140,120,139,118,139 /* ... */ });
     one.add("triangle", new Integer[] {137,139,135,141,133,144,132,146 /* ... */ });
-    
     one.bind("circle triangle","detected");
 }
 
 void draw(){
+    background(255);
     // ...
     
     noFill(); stroke(50);
