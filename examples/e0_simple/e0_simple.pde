@@ -36,6 +36,7 @@ void setup(){
 // implement callbacks:
 void detected(String gesture, int x, int y, int c_x, int c_y){
   println("Detected gesture: "+gesture+" (Position: X: "+x+" / Y: "+y+", Centroid: X: "+c_x+" / Y: "+c_y+")");
+  gesture_name = gesture;
 }
 
 
