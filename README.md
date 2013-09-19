@@ -89,6 +89,8 @@ System:
 
 Processing Version:
 
+* 2.0.3
+* 2.0.2
 * 2.0.1
 * 2.0b9
 * 2.0b8
