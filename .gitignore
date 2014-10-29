@@ -2,3 +2,5 @@
 .svn
 .project
 .buildpath
+.classpath
+.settings
