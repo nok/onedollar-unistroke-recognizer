@@ -1,4 +1,6 @@
-Copyright 2012-2013, Darius Morawiec
+Processing-Library:
+
+Copyright 2012-2014, Darius Morawiec
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -18,3 +20,17 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+------------
+
+
+1$-Algorithm:
+
+Wobbrock, J.O., Wilson, A.D. and Li, Y. (2007). Gestures without
+libraries, toolkits or training: A $1 recognizer for user interface
+prototypes. Proceedings of the ACM Symposium on User Interface Software
+and Technology (UIST '07). Newport, Rhode Island (October 7-10, 2007).
+New York: ACM Press, pp. 159-168.
+
+http://faculty.washington.edu/wobbrock/pubs/uist-07.1.pdf

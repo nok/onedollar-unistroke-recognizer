@@ -1,6 +1,12 @@
 .DS_Store
 .svn
 .project
-.buildpath
 .classpath
-.settings
+.settings/
+distribution/
+lib/
+resources/
+web/
+src/development/
+bin/
+tmp/

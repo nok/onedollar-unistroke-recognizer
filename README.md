@@ -3,6 +3,19 @@
 Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a two-dimensional template based gesture recognition, for [Processing](http://processing.org/).
 
 
+## Table of Contents
+
+- [About](#about)
+- [Download](#download)
+- [Installation](#installation)
+- [Tested](#tested)
+- [Examples](#examples)
+- [Usage](#usage)
+- [Changelog](#changelog)
+- [Questions?](#questions)
+- [License](#license)
+
+
 ## About
 
 The [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/) is a research project by Wobbrock, Wilson and Li of the University of Washington and Microsoft Research. It describes a simple algorithm for accurate and fast recognition of drawn gestures.
@@ -22,8 +35,38 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libraries folder of your Processing sketches. Reference and examples are included in the *OneDollarUnistrokeRecognizer* folder.
 
 
-## Usage
+## Tested
 
+System:
+
+* **OSX** (*Mac OS 10.7 and higher*)
+* **Windows** (*Windows 7 and 8*)
+
+Processing version:
+
+* **2.2.1**
+* 2.0.3
+* 2.0.2
+* 2.0.1
+* 2.0b9
+* 2.0b8
+* 2.0b7
+* 2.0b6
+* 2.0b5
+* 1.5.1
+
+
+## Examples
+
+* [Simple](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e0_simple/e0_simple.pde)
+* [Basic](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e1_basic/e1_basic.pde)
+* [Callbacks](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e2_several_callbacks/e2_several_callbacks.pde)
+* [Binding](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
+* [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
+* [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
+
+
+## Usage
 
 Import the library, create the *OneDollar* object, add gestures, bind and implement callbacks. That's all, have fun!
 
@@ -61,50 +104,6 @@ void mouseReleased(){ one.end(100); }
 ```
 
 For extended instructions look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
-
-
-## Examples
-
-* [Simple](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e0_simple/e0_simple.pde)
-* [Basic](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e1_basic/e1_basic.pde)
-* [Callbacks](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e2_several_callbacks/e2_several_callbacks.pde)
-* [Binding](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
-* [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
-* [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
-
-<!--
-
-With dependencies:
-
-* [LeapMotion](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e6_leapmotion/e6_leapmotion.pde) with [https://github.com/voidplus/leap-motion-processing](https://github.com/voidplus/leap-motion-processing)
-
--->
-
-## Tested
-
-System:
-
-* OSX
-* Windows
-
-Processing Version:
-
-* 2.0.3
-* 2.0.2
-* 2.0.1
-* 2.0b9
-* 2.0b8
-* 2.0b7
-* 2.0b6
-* 2.0b5
-* 1.5.1
-
-
-
-
-## Dependencies
-
-None.
 
 
 ## Questions?
