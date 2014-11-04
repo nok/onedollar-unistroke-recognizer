@@ -27,7 +27,9 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 ## Download
 
-* [OneDollarUnistrokeRecognizer.zip v0.2.4](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/download/OneDollarUnistrokeRecognizer.zip)
+* [OneDollarUnistrokeRecognizer.zip v1.0.0](download/OneDollarUnistrokeRecognizer.zip?raw=true)
+
+View [releases](https://github.com/voidplus/onedollar-unistroke-recognizer/releases) for older versions of that library.
 
 
 ## Installation
@@ -39,8 +41,9 @@ Unzip and put the extracted *OneDollarUnistrokeRecognizer* folder into the libra
 
 System:
 
-* **OSX** (*Mac OS 10.7 and higher*)
+* **OS X** (*Mac OS 10.7 and higher*)
 * **Windows** (*Windows 7 and 8*)
+* **Linux** (*should work*)
 
 Processing version:
 
@@ -51,24 +54,23 @@ Processing version:
 * 2.0b9
 * 2.0b8
 * 2.0b7
-* 2.0b6
-* 2.0b5
-* 1.5.1
+
+Older versions of Processing aren't supported because of [these](https://github.com/processing/processing/wiki/Library-Basics#body) changes. View [releases](https://github.com/voidplus/onedollar-unistroke-recognizer/releases) for older versions of that library.
 
 
 ## Examples
 
-* [Simple](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e0_simple/e0_simple.pde)
-* [Basic](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e1_basic/e1_basic.pde)
-* [Callbacks](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e2_several_callbacks/e2_several_callbacks.pde)
-* [Binding](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e3_local_binding/e3_local_binding.pde)
-* [Gestures](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e4_more_gestures/e4_more_gestures.pde)
-* [Settings](https://github.com/voidplus/onedollar-unistroke-recognizer/blob/master/examples/e5_settings/e5_settings.pde)
+* [Simple](examples/e0_simple/e0_simple.pde)
+* [Basic](examples/e1_basic/e1_basic.pde)
+* [Callbacks](examples/e2_several_callbacks/e2_several_callbacks.pde)
+* [Binding](examples/e3_local_binding/e3_local_binding.pde)
+* [Gestures](examples/e4_more_gestures/e4_more_gestures.pde)
+* [Settings](examples/e5_settings/e5_settings.pde)
 
 
 ## Usage
 
-Import the library, create the *OneDollar* object, add gestures, bind and implement callbacks. That's all, have fun!
+Import the library, create an instance of *OneDollar*, add gestures, define binds, implement these callbacks and track your moves. And of course, have fun. The following example shows the simplest usage of the library. Please check the [others examples](#examples) to discover more useful features.
 
 ```java
 import de.voidplus.dollar.*;
@@ -80,30 +82,44 @@ void setup(){
     background(255);
     // ...
     
+    // 1. Create instance of class OneDollar:
     one = new OneDollar(this);
-    one.add("circle", new Integer[] {127,141,124,140,120,139,118,139 /* ... */ });
-    one.add("triangle", new Integer[] {137,139,135,141,133,144,132,146 /* ... */ });
-    one.bind("circle triangle","detected");
+    // println(one);               // Print all the settings
+    // one.setVerbose(true);       // Activate console verbose
+    
+    // 2. Add gestures (templates):
+    one.learn("circle", new Integer[] { 127,141 , 124,140 , 120,139 , 118,139 /* ... */ });
+    one.learn("triangle", new Integer[] { 137,139 , 135,141 , 133,144 , 132,146 /* ... */ });
+    one.learn("rectangle", new Integer[] { 135,141 , 133,144 , 132,146 , 132,146 /* ... */ });
+    // one.forget("circle");
+
+    // 3. Bind templates to methods (callbacks):
+    one.on("circle", "foo");
+    one.on("triangle rectangle", "bar");
+    // one.off("circle");
 }
 
 void draw(){
     background(255);
     // ...
-    
-    noFill(); stroke(50);
-	one.draw(); // optionally, you can draw the relevant candidates
+
+    // Optional draw:
+    one.draw();
 }
 
-void detected(String gesture, int x, int y, int centroid_x, int centroid_y){
-	println("Detected gesture: "+gesture+" (Position: X: "+x+" / Y: "+y+", Centroid: X: "+centroid_x+" / Y: "+centroid_y+")");
+// 4. Implement callbacks:
+void foo(String gestureName, float percentOfSimilarity, int startX, int startY, int centroidX, int centroidY, int endX, int endY){
+    println("Gesture: " + gesture + ", " + startX + "/" +startY + ", " + centroidX + "/" +centroidY + ", " + endX + "/" +endY);
+}
+void bar(String gestureName, float percentOfSimilarity, int startX, int startY, int centroidX, int centroidY, int endX, int endY){
+    println("Gesture: " + gesture + ", " + startX + "/" +startY + ", " + centroidX + "/" +centroidY + ", " + endX + "/" +endY);
 }
 
-void mousePressed(){ one.start(100); }  // 100 = id
-void mouseDragged(){ one.update(100, mouseX, mouseY); }
-void mouseReleased(){ one.end(100); }
+// 5. Track data:
+void mouseDragged(){
+    one.track(mouseX, mouseY);
+}
 ```
-
-For extended instructions look into the wiki: [**Usage**](https://github.com/voidplus/onedollar-unistroke-recognizer/wiki/Usage)
 
 
 ## Questions?
@@ -113,4 +129,4 @@ Don't be shy and feel free to contact me via [Twitter](http://twitter.voidplus.d
 
 ## License
 
-The library is Open Source Software released under the [MIT License](https://raw.github.com/voidplus/onedollar-unistroke-recognizer/master/MIT-LICENSE.txt). It's developed by [Darius Morawiec](http://voidplus.de).
+The library is Open Source Software released under the [MIT License](LICENSE.txt). It's developed by [Darius Morawiec](http://voidplus.de).
