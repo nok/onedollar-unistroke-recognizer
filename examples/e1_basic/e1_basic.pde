@@ -15,7 +15,7 @@ void setup(){
   
   // 1. Create instance of class OneDollar:
   one = new OneDollar(this);
-  println(one);                  // Print all the settings
+  println(one);                  // Print all settings
   one.setVerbose(true);          // Activate console verbose
   
   // 2. Add gestures (templates):

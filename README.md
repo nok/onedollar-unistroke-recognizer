@@ -27,7 +27,7 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 ## Download
 
-* [OneDollarUnistrokeRecognizer.zip v1.0.0](download/OneDollarUnistrokeRecognizer.zip?raw=true)
+* [OneDollarUnistrokeRecognizer.zip v1.0.1](download/OneDollarUnistrokeRecognizer.zip?raw=true)
 
 View [releases](https://github.com/voidplus/onedollar-unistroke-recognizer/releases) for older versions of that library.
 
@@ -84,7 +84,7 @@ void setup(){
     
     // 1. Create instance of class OneDollar:
     one = new OneDollar(this);
-    // println(one);               // Print all the settings
+    // println(one);               // Print all settings
     // one.setVerbose(true);       // Activate console verbose
     
     // 2. Add gestures (templates):
