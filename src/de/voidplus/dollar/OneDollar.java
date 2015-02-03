@@ -22,7 +22,7 @@ public class OneDollar {
 
 	private final static String NAME = "OneDollar-Unistroke-Recognizer";
 	private final static String VERSION = "1.0.1";
-	private final static String REPOSITORY = "https://github.com/voidplus/onedollar-unistroke-recognizer";
+	private final static String REPOSITORY = "https://github.com/nok/onedollar-unistroke-recognizer";
 	
 	private PApplet parent;
 	private HashMap<String,Callback> globalCallbacks;

@@ -29,7 +29,7 @@ Gestures can be recognised at any position, scale, and under any rotation. The s
 
 * [OneDollarUnistrokeRecognizer.zip v1.0.1](download/OneDollarUnistrokeRecognizer.zip?raw=true)
 
-View [releases](https://github.com/voidplus/onedollar-unistroke-recognizer/releases) for older versions of that library.
+View [releases](https://github.com/nok/onedollar-unistroke-recognizer/releases) for older versions of that library.
 
 
 ## Installation
@@ -55,7 +55,7 @@ Processing version:
 * 2.0b8
 * 2.0b7
 
-Older versions of Processing aren't supported because of [these](https://github.com/processing/processing/wiki/Library-Basics#body) changes. View [releases](https://github.com/voidplus/onedollar-unistroke-recognizer/releases) for older versions of that library.
+Older versions of Processing aren't supported because of [these](https://github.com/processing/processing/wiki/Library-Basics#body) changes. View [releases](https://github.com/nok/onedollar-unistroke-recognizer/releases) for older versions of that library.
 
 
 ## Examples
@@ -124,9 +124,9 @@ void mouseDragged(){
 
 ## Questions?
 
-Don't be shy and feel free to contact me via [Twitter](http://twitter.voidplus.de).
+Don't be shy and feel free to contact me on Twitter: [@darius_morawiec](https://twitter.com/darius_morawiec)
 
 
 ## License
 
-The library is Open Source Software released under the [MIT License](LICENSE.txt). It's developed by [Darius Morawiec](http://voidplus.de).
+The library is Open Source Software released under the [License](LICENSE.txt).
