@@ -15,13 +15,13 @@ import processing.core.PVector;
 /**
  * OneDollar class
  * 
- * @version 1.0.1
+ * @version 1.0.2
  * @author Darius Morawiec
  */
 public class OneDollar {
 
 	private final static String NAME = "OneDollar-Unistroke-Recognizer";
-	private final static String VERSION = "1.0.1";
+	private final static String VERSION = "1.0.2";
 	private final static String REPOSITORY = "https://github.com/nok/onedollar-unistroke-recognizer";
 	
 	private PApplet parent;
