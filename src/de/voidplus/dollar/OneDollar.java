@@ -15,13 +15,13 @@ import processing.core.PVector;
 /**
  * OneDollar class
  * 
- * @version 1.0.2
+ * @version 1.0.3
  * @author Darius Morawiec
  */
 public class OneDollar {
 
 	private final static String NAME = "OneDollar-Unistroke-Recognizer";
-	private final static String VERSION = "1.0.2";
+	private final static String VERSION = "1.0.3";
 	private final static String REPOSITORY = "https://github.com/nok/onedollar-unistroke-recognizer";
 	
 	private PApplet parent;
@@ -29,6 +29,7 @@ public class OneDollar {
 	private HashMap<Integer,HashMap<String,Callback>> localCallbacks;
 	
 	private Pia pia;
+	private boolean autoCheck;
 	private boolean verbose;
 	
 	/**
@@ -39,6 +40,7 @@ public class OneDollar {
 	public OneDollar(PApplet parent){
 		PApplet.println("# "+OneDollar.NAME+" v"+OneDollar.VERSION+" - "+OneDollar.REPOSITORY);
 		
+		this.enableAutoCheck();
 		parent.registerMethod("pre", this);
 		parent.registerMethod("post", this);
 		
@@ -63,7 +65,7 @@ public class OneDollar {
 			.setMinDistance(50).enableMinDistance()
 			.setMaxTime(1000).enableMaxTime()
 			.setMinSpeed(2).disableMinSpeed();
-		
+
 		this.setVerbose(false);
 	}
 
@@ -153,11 +155,30 @@ public class OneDollar {
 	 * 
 	 * @return
 	 */
-	private void check(){
+	public void check(){
 		if(this.hasTemplates()){
 			if(this.hasCandidates()){
 				this.checkGlobalCallbacks();
 				this.checkLocalCallbacks();			
+			}
+		}
+	}
+	
+	/**
+	 * Run the recognition with specific candidate and in case of success execute the binded callback.
+	 * 
+	 * @param candidate
+	 */
+	public void check(int[] candidate){
+		if(this.hasTemplates() && this.hasGlobalCallbacks()){
+			ArrayList<Result> results = this.pia.check(candidate);
+			if (results.size() > 0) {
+				Result result = results.get(0);
+				String template = result.getName();
+				if (this.globalCallbacks.containsKey(template)) {
+					this.log(result.getTrackingId(), result);
+					this.globalCallbacks.get(template).fire(template, result);
+				}				
 			}
 		}
 	}
@@ -232,6 +253,26 @@ public class OneDollar {
 		this.pia.enableAutoClean();
 		return this;
 	}
+	
+	/**
+	 * Enable auto recognition of gestures.
+	 * 
+	 * @return
+	 */
+	public OneDollar enableAutoCheck() {
+		this.autoCheck = true;
+		return this;
+	}
+	
+	/**
+	 * Disable auto recognition of gestures.
+	 * 
+	 * @return
+	 */
+	public OneDollar disableAutoCheck() {
+		this.autoCheck = false;
+		return this;
+	}	
 
 	/**
 	 * Disable auto clean of inactive candidates.
@@ -248,8 +289,10 @@ public class OneDollar {
 	/**
 	 * The pre() method will be execute before the draw() methode.
 	 */
-	public void pre(){
-		this.check();
+	public void pre() {
+		if (this.autoCheck) {
+			this.check();
+		}
 	}
 	
 	/**
