@@ -1,6 +1,6 @@
 # OneDollar-Unistroke-Recognizer
 
-Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a two-dimensional template based gesture recognition, for [Processing](http://processing.org/).
+JAVA Implementation of the [$1 Gesture Recognizer](http://depts.washington.edu/aimgroup/proj/dollar/), a two-dimensional template based gesture recognition, for [Processing](http://processing.org/).
 
 
 ## Table of Contents
