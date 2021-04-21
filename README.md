@@ -88,9 +88,9 @@ void setup(){
     // one.setVerbose(true);       // Activate console verbose
     
     // 2. Add gestures (templates):
-    one.learn("circle", new Integer[] { 127,141 , 124,140 , 120,139 , 118,139 /* ... */ });
-    one.learn("triangle", new Integer[] { 137,139 , 135,141 , 133,144 , 132,146 /* ... */ });
-    one.learn("rectangle", new Integer[] { 135,141 , 133,144 , 132,146 , 132,146 /* ... */ });
+    one.learn("circle", new int[] { 127,141 , 124,140 , 120,139 , 118,139 /* ... */ });
+    one.learn("triangle", new int[] { 137,139 , 135,141 , 133,144 , 132,146 /* ... */ });
+    one.learn("rectangle", new int[] { 135,141 , 133,144 , 132,146 , 132,146 /* ... */ });
     // one.forget("circle");
 
     // 3. Bind templates to methods (callbacks):
@@ -109,10 +109,10 @@ void draw(){
 
 // 4. Implement callbacks:
 void foo(String gestureName, float percentOfSimilarity, int startX, int startY, int centroidX, int centroidY, int endX, int endY){
-    println("Gesture: " + gesture + ", " + startX + "/" +startY + ", " + centroidX + "/" +centroidY + ", " + endX + "/" +endY);
+    println("Gesture: " + gestureName + ", " + startX + "/" +startY + ", " + centroidX + "/" +centroidY + ", " + endX + "/" +endY);
 }
 void bar(String gestureName, float percentOfSimilarity, int startX, int startY, int centroidX, int centroidY, int endX, int endY){
-    println("Gesture: " + gesture + ", " + startX + "/" +startY + ", " + centroidX + "/" +centroidY + ", " + endX + "/" +endY);
+    println("Gesture: " + gestureName + ", " + startX + "/" +startY + ", " + centroidX + "/" +centroidY + ", " + endX + "/" +endY);
 }
 
 // 5. Track data:
